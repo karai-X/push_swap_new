@@ -1,27 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_putnbr_fd_cnt.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: karai <karai@student.42.fr>                +#+  +:+       +#+        */
+/*   By: karai <karai@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/27 15:09:54 by karai             #+#    #+#             */
-/*   Updated: 2024/11/04 16:36:58 by karai            ###   ########.fr       */
+/*   Created: 2024/11/02 17:24:59 by karai             #+#    #+#             */
+/*   Updated: 2024/11/02 18:07:02 by karai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
-static void	ft_putnbr_minus(long long *nb, int fd)
+static void	ft_putnbr_minus(long long *nb, int fd, int *cnt)
 {
 	if (*nb < 0)
 	{
 		*nb = -*nb;
-		write(fd, "-", 1);
+		ft_putchar_fd_cnt('-', fd, cnt);
 	}
 }
 
-void	ft_putnbr_fd(int n, int fd)
+void	ft_putnbr_fd_cnt(int n, int fd, int *cnt)
 {
 	int			div;
 	long long	tmp;
@@ -29,7 +29,7 @@ void	ft_putnbr_fd(int n, int fd)
 	long long	nb_long;
 
 	nb_long = (long long)n;
-	ft_putnbr_minus(&nb_long, fd);
+	ft_putnbr_minus(&nb_long, fd, cnt);
 	div = 1;
 	tmp = nb_long;
 	while (tmp / 10 != 0)
@@ -40,7 +40,7 @@ void	ft_putnbr_fd(int n, int fd)
 	while (div != 0)
 	{
 		num_char = '0' + (nb_long / div % 10);
-		write(fd, &num_char, 1);
+		ft_putchar_fd_cnt(num_char, fd, cnt);
 		div = div / 10;
 	}
 }

@@ -3,41 +3,39 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: karai <karai@student.42tokyo.jp>           +#+  +:+       +#+        */
+/*   By: karai <karai@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 20:12:26 by karai             #+#    #+#             */
-/*   Updated: 2024/11/30 16:22:54 by karai            ###   ########.fr       */
+/*   Updated: 2024/12/15 15:21:38 by karai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "bc_list.h"
-#include "libft.h"
 #include "push_swap.h"
 
 void	print_ans_part(int num)
 {
 	if (num == SA)
-		printf("sa\n");
+		ft_printf("sa\n");
 	if (num == SB)
-		printf("sb\n");
+		ft_printf("sb\n");
 	if (num == SS)
-		printf("ss\n");
+		ft_printf("ss\n");
 	if (num == PB)
-		printf("pb\n");
+		ft_printf("pb\n");
 	if (num == PA)
-		printf("pa\n");
+		ft_printf("pa\n");
 	if (num == RA)
-		printf("ra\n");
+		ft_printf("ra\n");
 	if (num == RB)
-		printf("rb\n");
+		ft_printf("rb\n");
 	if (num == RR)
-		printf("rr\n");
+		ft_printf("rr\n");
 	if (num == RRA)
-		printf("rra\n");
+		ft_printf("rra\n");
 	if (num == RRB)
-		printf("rrb\n");
+		ft_printf("rrb\n");
 	if (num == RRR)
-		printf("rrr\n");
+		ft_printf("rrr\n");
 }
 
 void	print_ans(t_list *ans_list)
@@ -71,7 +69,6 @@ int	main(int argc, char *argv[])
 	t_list	ans_list[1];
 	t_list	block_list[1];
 
-	// To implement error check
 	array = ft_comp_cord_main(argc, argv);
 	if (array == NULL)
 		return (1);

@@ -6,7 +6,7 @@
 /*   By: karai <karai@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/25 21:45:48 by karai             #+#    #+#             */
-/*   Updated: 2024/11/08 18:39:40 by karai            ###   ########.fr       */
+/*   Updated: 2024/10/30 19:41:50 by karai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,8 +67,8 @@ static char	**free_2dim(char **ret_str, size_t i)
 {
 	while (i > 0)
 	{
-		i -= 1;
 		free(ret_str[i]);
+		i -= 1;
 	}
 	free(ret_str);
 	return (NULL);

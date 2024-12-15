@@ -6,7 +6,7 @@
 /*   By: karai <karai@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/25 21:10:41 by karai             #+#    #+#             */
-/*   Updated: 2024/11/04 19:10:32 by karai            ###   ########.fr       */
+/*   Updated: 2024/10/30 20:39:34 by karai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ static void	ft_trim_set(const char *set, unsigned char trim[256])
 {
 	while (*set != '\0')
 	{
-		trim[(unsigned char)(*set)] = 1;
+		trim[(int)(*set) + 128] = 1;
 		set += 1;
 	}
 }
@@ -36,10 +36,10 @@ char	*ft_strtrim(char const *s1, char const *set)
 	s1_len = ft_strlen(s1);
 	start = 0;
 	end = s1_len;
-	while (trim[(unsigned char)(s1[start])])
+	while (trim[(int)s1[start] + 128])
 		start += 1;
 	end -= 1;
-	while (end > start && trim[(unsigned char)(s1[end])])
+	while (end > start && trim[(int)s1[end] + 128])
 		end -= 1;
 	str = (char *)malloc(end - start + 2);
 	if (str == NULL)

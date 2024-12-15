@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   bc_list2.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: karai <karai@student.42tokyo.jp>           +#+  +:+       +#+        */
+/*   By: karai <karai@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/28 21:37:52 by karai             #+#    #+#             */
-/*   Updated: 2024/11/30 09:58:35 by karai            ###   ########.fr       */
+/*   Updated: 2024/12/15 13:07:25 by karai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,6 +88,7 @@ void	list_remove_right(t_list *list)
 {
 	t_node	*tmp_ptr;
 
+	tmp_ptr = NULL;
 	if (list_is_empty(list) == false)
 	{
 		if (list->head == list->head->next)

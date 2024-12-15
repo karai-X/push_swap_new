@@ -1,6 +1,12 @@
+NAME = libftprintf.a
 CFLAGS = -Wall -Wextra -Werror
 CC = cc
-SRCS = ft_isalpha.c\
+SRCS = ft_printf.c\
+		ft_putnbr_fd_cnt.c\
+		ft_putnbr_uint_hex.c\
+		ft_putptr.c\
+		ft_putstr_fd_cnt.c\
+		ft_isalpha.c\
 		ft_isdigit.c\
 		ft_isalnum.c\
 		ft_isascii.c\
@@ -36,12 +42,11 @@ SRCS = ft_isalpha.c\
 		ft_putnbr_fd.c\
 
 OBJS = $(SRCS:.c=.o)
-NAME = libft.a
 
 all: $(NAME)
 
 $(NAME): $(OBJS)
-		ar rcs $@ $(OBJS)
+		ar rcs $(NAME) $(OBJS)
 
 %.o: %.c
 		$(CC) $(CFLAGS) -c $< -o $@

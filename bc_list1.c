@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   bc_list1.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: karai <karai@student.42tokyo.jp>           +#+  +:+       +#+        */
+/*   By: karai <karai@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/28 20:53:16 by karai             #+#    #+#             */
-/*   Updated: 2024/11/30 16:13:03 by karai            ###   ########.fr       */
+/*   Updated: 2024/12/15 13:06:26 by karai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,11 +69,11 @@ void	list_print(t_list *list)
 	else
 	{
 		tmp_ptr = list->head;
-		printf("%d\n", tmp_ptr->data);
+		ft_printf("%d\n", tmp_ptr->data);
 		tmp_ptr = tmp_ptr->next;
 		while (tmp_ptr != list->head)
 		{
-			printf("%d\n", tmp_ptr->data);
+			ft_printf("%d\n", tmp_ptr->data);
 			tmp_ptr = tmp_ptr->next;
 		}
 	}
