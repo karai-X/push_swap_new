@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: karai <karai@student.42.fr>                +#+  +:+       +#+        */
+/*   By: karai <karai@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 20:33:10 by karai             #+#    #+#             */
-/*   Updated: 2024/12/15 15:45:17 by karai            ###   ########.fr       */
+/*   Updated: 2024/12/19 23:19:07 by karai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,14 +31,18 @@
 # define RRB 10
 # define RRR 11
 
-int		*ft_comp_cord_main(int argc, char *argv[]);
+int		*ft_comp_cord_main(int *argc, char *argv[]);
 int		*ft_comp_cord_main_part(int argc, int *array);
 int		*ft_comp_cord(int *array, int length);
 void	ft_comp_cord_part(int *temp_array, int *array, int length);
+int		*ft_comp_cord_for_split(int *argc, char ***argv, int *split_flag);
 
 bool	ft_is_duplicate(int *array, int length);
 void	ft_sort_upper(int *array, int length);
 bool	already_sort(int *array, int num);
 bool	ft_atoi_for_ps(char *np, int *val);
+
+void	*free2dim(char **array_2d);
+void	*print_error(void);
 
 #endif

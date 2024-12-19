@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: karai <karai@student.42.fr>                +#+  +:+       +#+        */
+/*   By: karai <karai@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 20:12:26 by karai             #+#    #+#             */
-/*   Updated: 2024/12/15 15:21:38 by karai            ###   ########.fr       */
+/*   Updated: 2024/12/19 22:40:02 by karai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ int	main(int argc, char *argv[])
 	t_list	ans_list[1];
 	t_list	block_list[1];
 
-	array = ft_comp_cord_main(argc, argv);
+	array = ft_comp_cord_main(&argc, argv);
 	if (array == NULL)
 		return (1);
 	list_initialize(alist, blist, ans_list, block_list);

@@ -20,6 +20,7 @@ SRC = bc_list1.c\
 		sort_list_u3_to_other.c\
 		sort_list_u3.c\
 		sort_list.c\
+		free.c\
 
 LIBFTPRINTF = libftprintf.a
 LIBFTPRINTF_PATH = ./ft_printf

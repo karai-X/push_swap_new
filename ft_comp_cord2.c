@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_comp_cord2.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: karai <karai@student.42.fr>                +#+  +:+       +#+        */
+/*   By: karai <karai@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/15 15:28:46 by karai             #+#    #+#             */
-/*   Updated: 2024/12/15 16:09:28 by karai            ###   ########.fr       */
+/*   Updated: 2024/12/19 22:31:17 by karai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ bool	ft_is_duplicate(int *array, int length)
 	{
 		if (array[i] == array[i + 1])
 		{
-			ft_printf("Error\n");
 			return (true);
 		}
 		i += 1;

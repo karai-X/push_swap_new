@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_comp_cord.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: karai <karai@student.42.fr>                +#+  +:+       +#+        */
+/*   By: karai <karai@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 20:21:57 by karai             #+#    #+#             */
-/*   Updated: 2024/12/15 16:06:30 by karai            ###   ########.fr       */
+/*   Updated: 2024/12/19 23:19:24 by karai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,38 +52,73 @@ void	ft_comp_cord_part(int *temp_array, int *array, int length)
 
 int	*ft_comp_cord_main_part(int argc, int *array)
 {
-	if (already_sort(array, argc - 1) == true)
+	if (ft_comp_cord(array, argc - 1) == NULL)
 	{
+		write(2, "Error\n", 6);
 		free(array);
 		return (NULL);
 	}
-	if (ft_comp_cord(array, argc - 1) == NULL)
+	if (already_sort(array, argc - 1) == true)
 	{
 		free(array);
-		return (NULL);
+		exit(0);
 	}
 	return (array);
 }
 
-int	*ft_comp_cord_main(int argc, char *argv[])
+int	*ft_comp_cord_for_split(int *argc, char ***argv, int *split_flag)
+{
+	int	*array;
+
+	if (*argc < 2)
+		return (print_error());
+	if (*argc == 2)
+	{
+		*split_flag = 1;
+		*argv = ft_split((*argv)[1], ' ');
+		if (*argv == NULL)
+			return (print_error());
+		*argc = 0;
+		while ((*argv)[*argc])
+			*argc += 1;
+		*argc = *argc + 1;
+	}
+	else
+		*argv = &(*argv)[1];
+	array = malloc(sizeof(int) * (*argc - 1));
+	if (array == NULL)
+	{
+		if (split_flag)
+			free2dim(*argv);
+		return (print_error());
+	}
+	return (array);
+}
+
+int	*ft_comp_cord_main(int *argc, char *argv[])
 {
 	int	i;
 	int	*array;
+	int	split_flag;
 
-	if (argc <= 2)
-		return (NULL);
-	array = malloc(sizeof(int) * (argc - 1));
+	split_flag = 0;
+	array = ft_comp_cord_for_split(argc, &argv, &split_flag);
 	if (array == NULL)
 		return (NULL);
-	i = 1;
-	while (i < argc)
+	i = 0;
+	while (i < *argc - 1)
 	{
-		if (ft_atoi_for_ps(argv[i], &(array[i - 1])) == false)
+		if (ft_atoi_for_ps(argv[i], &(array[i])) == false)
 		{
+			if (split_flag)
+				free2dim(argv);
 			free(array);
+			write(2, "Error\n", 6);
 			return (NULL);
 		}
 		i += 1;
 	}
-	return (ft_comp_cord_main_part(argc, array));
+	if (split_flag)
+		free2dim(argv);
+	return (ft_comp_cord_main_part(*argc, array));
 }
